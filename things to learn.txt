@@ -1,0 +1,2 @@
+export default class vs export class
+  hvis export class må import ha {} rundt klassenavnet

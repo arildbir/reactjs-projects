@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>React - Arilds lekeplass</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyByBdtLSPkcnTA94YNLE7-mTjjLqCZxknM",
+      authDomain: "react-chat-app-7ef6b.firebaseapp.com",
+      databaseURL: "https://react-chat-app-7ef6b.firebaseio.com",
+      projectId: "react-chat-app-7ef6b",
+      storageBucket: "react-chat-app-7ef6b.appspot.com",
+      messagingSenderId: "824673198268"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
+  <script src="/app/bundle.js"></script>
+</body>
+
+</html>
