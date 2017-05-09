@@ -26,7 +26,9 @@ export class Todo extends Component {
   }
 
   addToList (value) {
-    let id = this.state.messages.length;
+    let id = this.state.messages.length+1;
+    console.log(id);
+    console.log(value);
     firebase.database().ref('messages/'+id).set(value);
   }
 

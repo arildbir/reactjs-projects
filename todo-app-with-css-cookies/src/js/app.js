@@ -4,17 +4,18 @@ import {Todo} from './components/wrapper-todo.js';
 import {About} from './components/about.js';
 import {NotFoundRoute} from './components/not-found-route.js';
 import {BrowserRouter, Link, Route, Switch, Redirect} from 'react-router-dom';
+import { instanceOf } from 'prop-types';
+import * as Cookies from "js-cookie";
 
 //appens inputparemetere
 let taskList = ["Spise iskrem med strø", "Stek opp bacon"];
-//bruker minne til browser for å huske ved refresh
-let tasks = localStorage.getItem('storedTasks'); //i console se på den ved å skrive localStorage.setItem
-if (tasks) {
-  taskList = JSON.parse(tasks);
-}
+Cookies.set('tasks', {tasks:["Spise iskrem med strø", "Stek opp bacon"]});
 
 //Intital app to call all components
-class Root extends Component {
+export class Root extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
         <BrowserRouter>
@@ -23,6 +24,7 @@ class Root extends Component {
     )
   }
 } //class
+
 
 const RouterTree = () => (<div><Header /><Main /></div>)
 
@@ -46,8 +48,7 @@ class Main extends Component {
       <Switch>
         <Route exact path='/' component={App}/>
         <Route exact path='/about' component={About}/>
-          <Route component={NotFoundRoute} />
-
+        <Route component={NotFoundRoute} />
       </Switch>
     )
   }
@@ -56,9 +57,11 @@ class Main extends Component {
 //the root of the Task-app
 class App extends Component {
   render() {
+    let cookie = Cookies.get('tasks'); // => 'value'
     return (
       <div>
         <header/>
+        <p>{cookie}</p>
         <Todo tasks={taskList}/>
       </div>
     )
