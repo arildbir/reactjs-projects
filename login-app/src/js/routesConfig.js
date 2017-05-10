@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter, Link, Route, Switch, Redirect} from 'react-router-dom';
 
 import Greetings from './components/greetings'
-import Signup from './components/signup'
+import SignupPage from './components/signup/signupPage'
 import NavigationBar from './components/navigationBar'
 
 class RouterTree extends Component {
@@ -23,7 +23,7 @@ class RoutesConfigRendering extends Component {
     return (
       <Switch>
         <Route exact path='/' component={Greetings}/>
-        <Route exact path='/signup' component={Signup}/>
+        <Route exact path='/signup' component={SignupPage}/>
         <Route component={NotFoundRoute} />
       </Switch>
     )
