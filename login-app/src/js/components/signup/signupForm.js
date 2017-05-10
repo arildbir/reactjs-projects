@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import map from 'lodash/map';
 
 import timezones from '../../data/timezones.js';
 
@@ -32,9 +31,14 @@ onSubmit(e) {
 
 
   render() {
-/*    const options = map(timezones, (val, key) =>
-          <option key={val} value={val}>{key}</option>
-        );*/
+    //ES6 iterate object. get key value from object
+  const options = [];
+   Object.entries(timezones).forEach((key, val) => {
+    console.log ("key", key);
+    //console.log ("val", val);
+    options.push (<option key={key[1]} value={key[1]}>{key[0]}</option>);
+  });
+
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Registrer deg her</h1>
@@ -45,11 +49,11 @@ onSubmit(e) {
 
         <div className="form-group">
           <label className="control-label">Tidssone</label>
-          <select value={this.state.timezone} onChange={this.onChange} type="text" name="timezone" className="form-control">
+          <select value={this.state.timezone} onChange={this.onChange} name="timezone" className="form-control">
             <option value="" disabled>Velg din tidssone</option>
+            {options}
           </select>
         </div>
-
 
         <div className="form-group">
           <button className="btn btn-primary btn-lg">Registrer deg</button>
