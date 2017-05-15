@@ -16,10 +16,11 @@ class SignupPage extends Component {
     const {user} = this.props;
     console.log ("Page props", this.props);
     console.log ("Page state", this.state);
+    console.log ("Page user", user);
     return (
       <div className="row">
         <div className="col-md-4 col-md-offset-4">
-          <SignupForm onCreateNewUser={createNewUser} history={this.props.history}/>
+          <SignupForm onCreateNewUser={this.props.createNewUser} history={this.props.history}/>
         </div>
       </div>
     );
@@ -40,13 +41,14 @@ SignupPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user.user
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({createNewUser : createNewUser}, dispatch)
+  return bindActionCreators({createNewUser : createNewUser}, dispatch)  //obs: remember to use in render as this.props.createNewUser
 }
+
 //passing in action as a property, same as for the State
 //dispatch is the same as saying 'pass a function'
 

@@ -3,13 +3,12 @@ import classnames from 'classnames'; //conditionally joining classNames together
 import PropTypes from 'prop-types';
 
 
-const TextFieldGroup = ({ field, value, label, error, type, onChange, checkUserExists }) => {
+const TextFieldGroup = ({ field, value, label, error, type, onChange }) => {
   return (
     <div className={classnames('form-group', { 'has-error': error })}>
       <label className="control-label">{label}</label>
       <input
         onChange={onChange}
-        onBlur={checkUserExists}
         value={value}
         type={type}
         name={field}
@@ -26,7 +25,6 @@ TextFieldGroup.propTypes = {
   error: PropTypes.string,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  checkUserExists: PropTypes.func
 }
 
 TextFieldGroup.defaultProps = {

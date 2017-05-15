@@ -16,12 +16,15 @@ import timezones from '../../data/timezones.js';
      this.state = {
       username: '',
       email: '',
+      github: '',
       password: '',
       passwordConfirmation: '',
       timezone: '',
       errors: {},
       isLoading: false,
-      invalid: false
+      invalid: false,
+      userLoggedIn:false
+
     }
      this.onChange = this.onChange.bind(this);
      this.onSubmit = this.onSubmit.bind(this);
@@ -43,24 +46,16 @@ isValid() {
 }
 
 onSubmit(e) {
-  const newURL = this.props.history.push('/');
   e.preventDefault();
-  console.log (this.props);
-  //axios.post('/api/users', {user: this.state});
+  console.log ("onSubmit sin state: ", this.state);
   if (this.isValid()) {
-      this.setState({ errors: {}, isLoading: true });
+      let newState = this.state;
+      newState.userLoggedIn=true;
+      console.log ("onCreateNewUser newState:", newState);
+      this.setState(newState);
+      console.log ("onCreateNewUser får:", this.state);
       this.props.onCreateNewUser(this.state);
       this.props.history.push('/') //history is required and passed from parrent class
-
-      /*.then(
-        () => {
-          console.log("inn i .then")
-          this.props.history.push('/') //history is required and passed from parrent class
-        //  this.props.history.push('/theUrlYouWantToGoTo'); //withRedirect one will wrap the class with withRedirect and have access to history
-
-        },
-        (err) => this.setState({ errors: err.response.data, isLoading: false })
-      );*/
     }
 }
 
@@ -96,6 +91,14 @@ onSubmit(e) {
           checkUserExists={this.checkUserExists}
           value={this.state.email}
           field="email"
+        />
+        <TextFieldGroup
+          error={errors.github}
+          label="Github"
+          onChange={this.onChange}
+          checkUserExists={this.checkUserExists}
+          value={this.state.github}
+          field="github"
         />
 
         <TextFieldGroup

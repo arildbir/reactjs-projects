@@ -11,12 +11,15 @@ class NavigationBar extends Component {
               <li className="navbar-brand">
                 <NavLink to="/" exact activeStyle={{color: 'red'}}>Hjem</NavLink>
               </li>
+              <li className="navbar-brand">
+                <NavLink to="/github" exact activeStyle={{color: 'red'}}>Github-profil</NavLink>
+              </li>
             </ul>
           </div>
           <div className="navbar-header navbar-right">
             <ul className="nav navbar-nav">
             <li className="navbar-brand">
-                <NavLink to="/signup" activeStyle={{color: 'red'}}>Reg</NavLink>
+                <NavLink to="/signup" activeStyle={{color: 'red'}}>Registrering</NavLink>
             </li>
           </ul>
           </div>

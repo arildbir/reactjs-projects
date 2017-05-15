@@ -1,11 +1,11 @@
 import {applyMiddleware, createStore } from "redux"
 import thunk from "redux-thunk"
-//import logger from "redux-logger"
+import logger from "redux-logger"
 //import promise from "redux-promise-middleware"
 
 import combinedReducers from './reducers/index'
 
-const middleware = applyMiddleware(thunk)
+const middleware = applyMiddleware(thunk, logger)
 
 export default createStore(combinedReducers, middleware);  //dette er det faste store objektet - alle data i webappen.
 

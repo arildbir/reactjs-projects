@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Greetings from './components/greetings'
 import SignupPage from './components/signup/signupPage'
+import GithubPage from './components/github/githubPage'
 import NavigationBar from './components/navigationBar'
 
 class RouterTree extends Component {
@@ -24,6 +25,7 @@ const RoutesConfigRendering = () =>  {
       <Switch>
         <Route exact path='/' component={Greetings}/>
         <Route exact path='/signup' component={SignupPage}/>
+        <Route exact path='/github' component={GithubPage}/>
         <Route component={NotFoundRoute} />
       </Switch>
     )

@@ -10,11 +10,27 @@
 //this reducer shall listen to the action "USER_SELECTED"
 //obs whenever an action occurs, it will be sendt to all reducers.
 
-export default function reducers(state={name: "Arild"}, action){
+export default function reducers(state={
+  user:
+  {
+  email:"arildbirkeland@hotmail.com",
+github: "arildbir",
+password:"e",
+passwordConfirmation:"e",
+timezone:"Pacific/Honolulu",
+username:"arildbirkeland@hotmail.com",
+userLoggedIn:true
+  }
+}, action){
+  console.log("userReducer har nå fått inn action:" , action)
+
   switch(action.type) {
-    case "ADD_NEW_USER":
-      return {...state, user: action.payload};
-      break;
+    case "CREATE_NEW_USER": {
+      return {
+        ...state,
+         user: action.payload
+      }
+    }
   }
   return state;
 }
