@@ -1,0 +1,39 @@
+{
+  "name": "login-app",
+  "version": "1.0.0",
+  "description": "login-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack -d && webpack-dev-server --content-base src/ --inline --hot --port 3000 --history-api-fallback"
+  },
+  "author": "Arild Birkeland",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.9",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-thunk": "^1.0.0",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "validator": "^7.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
+    "css-loader": "^0.28.1",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
