@@ -30,7 +30,14 @@ userLoggedIn:true
         ...state,
          user: action.payload
       }
-    }
+    }//case
+    case "LOGG_OUT_USER": {
+      return {
+        ...state,
+         user: {}
+      }
+    }//case
   }
+
   return state;
 }

@@ -10,6 +10,7 @@ export const getGithubProfile = (username) => {
       })
       .catch((error) => {
         console.log ("error i getGithubProfile: ", error)
+        dispatch ({type: "GET_GITHUB_PROFILE_ERROR", payload: error})
       })
   }
 };//end of createNewUser

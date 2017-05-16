@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGithubProfile} from '../../actions/githubActions';
+import UserDetails from './userDetails';
 
 
 export class Github extends Component {
@@ -17,20 +18,20 @@ export class Github extends Component {
   }
 
   render() {
-    const {github} = this.props.github
+    const {github} = this.props
     const {user} = this.props.user
     console.log ("Page props", this.props);
     console.log ("Page state", this.state);
     console.log ("Page github", github);
     console.log ("Page user", user);
 
-        if (!user.userLoggedIn) { //check if object is {}
+        if (!user.userLoggedIn || !github.showGithub) { //check if object is {}
             return (<h1>Registrer deg for å se dine data fra Github</h1>);
         }
         return (
               <div>
                 <h1>Github data</h1>
-                <div><pre>{JSON.stringify(github, null, 2) }</pre></div>;
+                <UserDetails avatar={github.github.avatar_url} username={github.github.login}/>
               </div>
         );
     }
@@ -51,3 +52,6 @@ function mapDispatchToProps(dispatch) {
 // was : export default UserList
 //became: when we want mapStateToProps
 export default connect(mapStateToProps)(Github);
+/*
+<div><pre>{JSON.stringify(github, null, 2) }</pre></div>
+*/

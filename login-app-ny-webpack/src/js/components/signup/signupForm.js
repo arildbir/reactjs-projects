@@ -55,13 +55,14 @@ onSubmit(e) {
       this.setState(newState);
       console.log ("onCreateNewUser får:", this.state);
       this.props.onCreateNewUser(this.state);
-      this.props.history.push('/') //history is required and passed from parrent class
+      this.context.router.history.push('/') 
     }
 }
 
   render() {
     //ES6 iterate object. get key value from object
     console.log ("this.props", this.props);
+    console.log ("this.context", this.context);
 
   const { errors } = this.state;
   const options = [];
@@ -145,7 +146,9 @@ onSubmit(e) {
 
 SignupForm.propTypes = {
   onCreateNewUser: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+}
+SignupForm.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 

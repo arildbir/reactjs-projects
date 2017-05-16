@@ -7,6 +7,14 @@ export const createNewUser = (user) => {
     payload: user
   }
 };//end of createNewUser
+export const loggOutUser = () => {
+  console.log ("************************ loggOutUser: ");
+  //this is the action
+  return {
+    type: 'LOGG_OUT_USER',
+    payload: {}
+  }
+};//end of createNewUser
 
 
 /*

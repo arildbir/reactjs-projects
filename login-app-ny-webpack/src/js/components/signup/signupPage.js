@@ -20,7 +20,7 @@ class SignupPage extends Component {
     return (
       <div className="row">
         <div className="col-md-4 col-md-offset-4">
-          <SignupForm onCreateNewUser={this.props.createNewUser} history={this.props.history}/>
+          <SignupForm onCreateNewUser={this.props.createNewUser} />
         </div>
       </div>
     );
@@ -30,7 +30,6 @@ class SignupPage extends Component {
 
 SignupPage.propTypes = {
 //  userSignupRequest: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
 }
 
 
